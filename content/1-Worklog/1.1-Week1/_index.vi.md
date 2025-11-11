@@ -5,49 +5,52 @@ weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
+
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Làm quen và kết nối với các thành viên trong First Cloud Journey (FCJ).  
+* Nắm bắt tổng quan các dịch vụ cơ bản của AWS, làm quen với cách sử dụng giao diện Console và công cụ dòng lệnh CLI.  
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc                                                                                                                                                                                                                       | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                                                               |
 | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ | ------------------------------------------------------------------------------- |
-| 2    | - Làm quen với các thành viên FCJ <br /> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập `<br>`  tìm kiếm các bạn đồng hành và lập ra nhóm Furious Five                                 | 11/08/2025       | 11/08/2025         |                                                                                 |
-| 3    | - Tìm hiểu AWS và các loại dịch vụ `<br>`&emsp; + Compute `<br>`&emsp; + Storage `<br>`&emsp; + Networking `<br>`&emsp; + Database `<br>`&emsp;                                                                  | 12/08/2025       | 12/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
-| 4    | - Tạo AWS Free Tier account `<br>` - Tìm hiểu AWS Console & AWS CLI `<br>` - **Thực hành:** `<br>`&emsp; + Tạo AWS account `<br>`&emsp; + Cài AWS CLI & cấu hình `<br>` &emsp; + Cách sử dụng AWS CLI | 13/08/2025       | 13/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
-| 5    | - Tìm hiểu EC2 cơ bản:`<br>`&emsp; + Instance types `<br>`&emsp; + AMI `<br>`&emsp; + EBS `<br>`&emsp; + ... `<br>` - Các cách remote SSH vào EC2 `<br>` - Tìm hiểu Elastic IP   `<br>`                    | 14/08/2025       | 15/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
-| 6    | -**Thực hành:** `<br>`&emsp; + Tạo EC2 instance `<br>`&emsp; + Kết nối SSH `<br>`&emsp; + Gắn EBS volume                                                                                                        | 15/08/2025       | 15/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
+| 2    | - Gặp gỡ và giới thiệu với các thành viên trong FCJ. <br /> - Đọc kỹ quy định, nội quy của đơn vị thực tập. <br /> - Tìm nhóm bạn cùng chí hướng và thành lập nhóm học tập **Furious Five**.                                   | 11/08/2025       | 11/08/2025         |                                                                                 |
+| 3    | - Tìm hiểu khái niệm AWS và phân loại các nhóm dịch vụ chính: `<br>`&emsp; + Compute `<br>`&emsp; + Storage `<br>`&emsp; + Networking `<br>`&emsp; + Database `<br>`&emsp; + Batch processing | 12/08/2025       | 12/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
+| 4    | - Đăng ký tài khoản AWS Free Tier. `<br>` - Làm quen với giao diện AWS Console và AWS CLI. `<br>` - **Thực hành:** `<br>`&emsp; + Tạo tài khoản AWS `<br>`&emsp; + Cài đặt và cấu hình CLI `<br>` &emsp; + Thực hành các lệnh cơ bản | 13/08/2025       | 13/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
+| 5    | - Tìm hiểu các khái niệm cơ bản về EC2: `<br>`&emsp; + Instance types `<br>`&emsp; + AMI `<br>`&emsp; + EBS `<br>`&emsp; - Cách truy cập EC2 qua SSH `<br>` - Tìm hiểu về Elastic IP và cách sử dụng | 14/08/2025       | 14/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
+| 6    | - **Thực hành:** `<br>`&emsp; + Khởi tạo một EC2 instance `<br>`&emsp; + Kết nối SSH thành công `<br>`&emsp; + Gắn thêm EBS volume cho instance                                                                                  | 15/08/2025       | 15/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
 
 ### Kết quả đạt được tuần 1:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:
+* Đã hiểu rõ hơn về AWS và các nhóm dịch vụ cốt lõi bao gồm:
 
-  * Compute
-  * Storage
-  * Networking
-  * Database
-  * Security, Identity & Compliance
-  * Analytics
-  * Machine Learning & AI
-  * Management & Monitoring
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
+  * Compute  
+  * Storage  
+  * Networking  
+  * Database  
+  * Security, Identity & Compliance  
+  * Analytics  
+  * Machine Learning & AI  
+  * Management & Monitoring  
 
-  * Access Key
-  * Secret Key
-  * Region mặc định
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Đăng ký và thiết lập thành công tài khoản AWS Free Tier cá nhân.  
+* Thành thạo các thao tác cơ bản trên **AWS Management Console**, biết cách truy cập và tìm kiếm dịch vụ nhanh chóng.  
+* Đã cài đặt, cấu hình công cụ **AWS CLI**, bao gồm:  
 
-  * Kiểm tra thông tin tài khoản và danh tính truy cập.
-  * Quản lý dịch vụ lưu trữ S3: tạo bucket, liệt kê bucket, tải lên và tải xuống dữ liệu.
-  * Quản lý EC2: tạo, khởi động, dừng, liệt kê và mô tả các instance.
-  * Quản lý RDS: liệt kê và mô tả các cơ sở dữ liệu.
-  * Quản lý IAM: tạo và gán quyền cho user, group, role.
-  * Quản lý VPC: xem và mô tả các VPC, subnet, security group.
-  * Giám sát hệ thống bằng CloudWatch: xem log, chỉ số (metrics).
-  * Quản lý Route 53: liệt kê hosted zones, record sets.
-  * Quản lý Lambda: triển khai và gọi hàm Lambda.
-  * Quản lý CloudFormation: triển khai và theo dõi stack.
+  * Access Key  
+  * Secret Key  
+  * Region mặc định  
+
+* Thực hành các lệnh CLI cơ bản như:
+
+  * Kiểm tra thông tin tài khoản và quyền truy cập.  
+  * Quản lý **S3**: tạo, liệt kê, tải lên và tải xuống dữ liệu.  
+  * Quản lý **EC2**: tạo, dừng, khởi động, mô tả instance.  
+  * Quản lý **RDS**: xem danh sách và thông tin database.  
+  * Quản lý **IAM**: tạo user, group, role và gán quyền.  
+  * Quản lý **VPC**: xem thông tin subnet, security group.  
+  * Theo dõi log và metrics bằng **CloudWatch**.  
+  * Quản lý DNS qua **Route 53**: xem hosted zones, record sets.  
+  * Triển khai và chạy thử **Lambda functions**.  
+  * Tạo và giám sát **CloudFormation stacks**.  

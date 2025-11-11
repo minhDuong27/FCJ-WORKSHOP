@@ -13,13 +13,33 @@ pre: " <b> 1.1. </b> "
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc                                                                                                                                                                                                                       | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                                                               |
-| ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ | ------------------------------------------------------------------------------- |
-| 2    | - Gặp gỡ và giới thiệu với các thành viên trong FCJ. <br /> - Đọc kỹ quy định, nội quy của đơn vị thực tập. <br /> - Tìm nhóm bạn cùng chí hướng và thành lập nhóm học tập **Furious Five**.                                   | 11/08/2025       | 11/08/2025         |                                                                                 |
-| 3    | - Tìm hiểu khái niệm AWS và phân loại các nhóm dịch vụ chính: `<br>`&emsp; + Compute `<br>`&emsp; + Storage `<br>`&emsp; + Networking `<br>`&emsp; + Database `<br>`&emsp; + Batch processing | 12/08/2025       | 12/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
-| 4    | - Đăng ký tài khoản AWS Free Tier. `<br>` - Làm quen với giao diện AWS Console và AWS CLI. `<br>` - **Thực hành:** `<br>`&emsp; + Tạo tài khoản AWS `<br>`&emsp; + Cài đặt và cấu hình CLI `<br>` &emsp; + Thực hành các lệnh cơ bản | 13/08/2025       | 13/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
-| 5    | - Tìm hiểu các khái niệm cơ bản về EC2: `<br>`&emsp; + Instance types `<br>`&emsp; + AMI `<br>`&emsp; + EBS `<br>`&emsp; - Cách truy cập EC2 qua SSH `<br>` - Tìm hiểu về Elastic IP và cách sử dụng | 14/08/2025       | 14/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
-| 6    | - **Thực hành:** `<br>`&emsp; + Khởi tạo một EC2 instance `<br>`&emsp; + Kết nối SSH thành công `<br>`&emsp; + Gắn thêm EBS volume cho instance                                                                                  | 15/08/2025       | 15/08/2025         | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Gặp gỡ và giới thiệu với các thành viên trong FCJ.  
+      - Đọc kỹ quy định, nội quy của đơn vị thực tập.  
+      - Tìm nhóm bạn cùng chí hướng và thành lập nhóm học tập **Furious Five**. | 11/08/2025 | 11/08/2025 | |
+| 3   | - Tìm hiểu khái niệm AWS và phân loại các nhóm dịch vụ chính:  
+      &emsp;+ Compute  
+      &emsp;+ Storage  
+      &emsp;+ Networking  
+      &emsp;+ Database  
+      &emsp;+ Batch processing | 12/08/2025 | 12/08/2025 | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
+| 4   | - Đăng ký tài khoản AWS Free Tier.  
+      - Làm quen với giao diện AWS Console và AWS CLI.  
+      - **Thực hành:**  
+      &emsp;+ Tạo tài khoản AWS  
+      &emsp;+ Cài đặt và cấu hình CLI  
+      &emsp;+ Thực hành các lệnh cơ bản | 13/08/2025 | 13/08/2025 | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
+| 5   | - Tìm hiểu các khái niệm cơ bản về EC2:  
+      &emsp;+ Instance types  
+      &emsp;+ AMI  
+      &emsp;+ EBS  
+      - Cách truy cập EC2 qua SSH  
+      - Tìm hiểu về Elastic IP và cách sử dụng | 14/08/2025 | 14/08/2025 | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
+| 6   | - **Thực hành:**  
+      &emsp;+ Khởi tạo một EC2 instance  
+      &emsp;+ Kết nối SSH thành công  
+      &emsp;+ Gắn thêm EBS volume cho instance | 15/08/2025 | 15/08/2025 | [https://cloudjourney.awsstudygroup.com/](https://cloudjourney.awsstudygroup.com/) |
 
 ### Kết quả đạt được tuần 1:
 

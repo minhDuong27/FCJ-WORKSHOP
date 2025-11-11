@@ -7,11 +7,11 @@ chapter: false
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Dương Minh Đức
+&emsp; **Họ và tên:** Lê Minh Dương
 
-&emsp; **Số điện thoại:** 0786579568
+&emsp; **Số điện thoại:** 0347622638
 
-&emsp; **Email:** Ducdmse182938@fpt.edu.vn
+&emsp; **Email:** leduong5469@gmail.com
 
 &emsp; **Trường:** Đại học FPT
 &emsp; **Ngành:** An Toàn Thông tin
@@ -24,7 +24,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 08/09/2025 đến ngày 12/12/2025
 
-![Ảnh đại diện của bạn](/images/avatar.png)
+![Ảnh đại diện của bạn](/images/simages/Gemini_Generated_Image_o9rzw4o9rzw4o9rz.png)
 
 
 

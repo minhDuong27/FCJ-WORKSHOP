@@ -10,11 +10,11 @@ chapter: false
 
 
 ### Student Information:
-&emsp; **Full Name:** Dương Minh Đức
+&emsp; **Full Name:** Le Minh Duong
 
-&emsp; **Phone Number:** 0786579568
+&emsp; **Phone Number:** 0347622638
 
-&emsp; **Email:** duongduc0786@gmail.com
+&emsp; **Email:** leduong5469@gmail.com
 
 &emsp; **University:** FPT University
 
@@ -28,7 +28,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 08/09/2025 to 12/12/2025
 
-![Your profile picture](/images/goat.png)
+![Your profile picture](/images/Gemini_Generated_Image_o9rzw4o9rzw4o9rz.png)
 
 ### Report Content
 

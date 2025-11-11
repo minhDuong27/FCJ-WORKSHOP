@@ -7,7 +7,7 @@ pre: " <b> 1.1. </b> "
 ---
 
 ### Mục tiêu tuần 1:
-
+..
 * Làm quen và kết nối với các thành viên trong First Cloud Journey (FCJ).  
 * Nắm bắt tổng quan các dịch vụ cơ bản của AWS, làm quen với cách sử dụng giao diện Console và công cụ dòng lệnh CLI.  
 

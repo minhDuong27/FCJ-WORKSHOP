@@ -1,139 +1,75 @@
 ---
 title: "Blog 1"
-date: 2025-09-09
+date: 2025-10-16
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# Giúp khách hàng triển khai các AI agent sẵn sàng cho sản xuất ở quy mô lớn
+# Sử dụng Mô hình Ngôn ngữ Lớn (LLM) trên Amazon Bedrock cho thực thi tác vụ đa bước
 
-  *by Swami Sivasubramanian ngày 16/07/2025 trong Amazon Bedrock, Amazon Connect, Amazon Nova, Amazon Q, Amazon Simple Storage Service (S3), Announcements, AWS Inferentia, AWS Trainium, AWS Transform, Featured, Thought Leadership* 
+**Bởi Bruno Klein, Mohammad Arbabshirani, và Rushabh Lokhande vào 02 Tháng 4 2025**  
+**Chủ đề:** Amazon Bedrock, Generative AI, Intermediate (200)
 
-AI agent được dự đoán sẽ có tác động mang tính cách mạng như chính Internet, cho phép tự động hóa, giải quyết các vấn đề phức tạp và thúc đẩy đổi mới. Tuy nhiên, việc đưa AI agent vào vận hành ở quy mô lớn không chỉ dừng lại ở huấn luyện mô hình lớn—mà còn đòi hỏi một kiến trúc đảm **bảo bảo mật, độ tin cậy, khả năng mở rộng và tính linh hoạt**.
+Mục tiêu của bài viết này là cho bạn thấy cách sử dụng mô hình ngôn ngữ lớn (LLM) để thực hiện các tác vụ đòi hỏi suy luận và thực thi động nhiều bước. Ví dụ về các tác vụ này bao gồm: 
 
-AWS giải quyết thách thức này bằng kiến trúc dựa trên **microservices**: mỗi năng lực của agent (bộ nhớ, định danh, giám sát, truy cập công cụ, tùy biến) được đóng gói thành một dịch vụ nhỏ, độc lập và kết nối lỏng lẻo thông qua một hub trung tâm. Cách phân tách này giúp tăng tính linh hoạt, dễ dàng thêm hoặc thay thế thành phần, đồng thời cho phép tổ chức tập trung vào giá trị kinh doanh thay vì phải xây dựng hạ tầng từ đầu.
+- “Thời gian nằm viện trung bình của bệnh nhân mắc [bệnh cụ thể] tại các bệnh viện khác nhau là bao lâu?”  
+- “Xu hướng kê đơn [thuốc cụ thể] khác nhau như thế nào giữa các khu vực khác nhau?”  
 
----
+Truy xuất những thông tin này truyền thống cần chuyên môn của các chuyên gia trí tuệ kinh doanh và kỹ sư dữ liệu, dẫn đến quy trình tốn thời gian và tiềm ẩn nhiều điểm nghẽn.
 
-## Hướng dẫn kiến trúc
+Tuy nhiên, tiến bộ trong LLM mở ra khả năng chia nhỏ các nhiệm vụ phức tạp thành một loạt các bước, sử dụng các công cụ để hoàn thành từng bước và đưa ra giải pháp cuối cùng.
 
-So với cách tiếp cận nguyên khối (monolithic), AWS tách nhỏ chức năng của agent thành nhiều microservices:
+## Công cụ và khả năng mở rộng
 
-**AgentCore**: môi trường serverless để điều phối các agent.
+Thuật ngữ *công cụ* ở đây đề cập đến các khả năng bên ngoài hoặc API mà mô hình có thể truy cập để mở rộng chức năng của nó. Các công cụ này cho phép LLM:
 
-**Dịch vụ chức năng**: bộ nhớ, định danh, giám sát, gateway, bộ thông dịch mã.
+- Truy xuất thông tin thời gian thực  
+- Chạy mã  
+- Duyệt web  
+- Tạo hình ảnh  
 
-**Dịch vụ tùy biến mô hình**: microservice fine-tuning Amazon Nova.
+Bằng cách sử dụng các công cụ, LLM có thể đưa ra kết quả chính xác hơn, nhận biết ngữ cảnh và hành động, hỗ trợ hiệu quả các truy vấn phức tạp.
 
-Thiết kế này cho phép khách hàng tự do chọn mô hình, tích hợp dữ liệu hiện có và kết nối liền mạch với các framework mã nguồn mở.
+## Ví dụ giải pháp: truy xuất hồ sơ bệnh nhân
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
-|Phạm vi giao tiếp	                     |  Công nghệ                                                           |
-|----------------------------------------|----------------------------------------------------------------------|          
-|Bên trong một microservice 	           | AWS Lambda, Step Functions                                           |
-|Giữa các microservice trong một agent	 |Amazon SNS, AWS CloudFormation cross-stack references                 |
-|Giữa các dịch vụ/agent	                 |Amazon EventBridge, API Gateway, AWS Cloud Map                        |
+Chúng tôi sử dụng **Synthetic Patient Generation dataset** và chỉ dùng API thay vì text-to-SQL. Mã nguồn có sẵn trên GitHub.
 
-## Hub Pub/Sub
+### Tổng quan giải pháp
 
-Mô hình **pub/sub hub** là trung tâm trong cách tiếp cận của AWS:
+Mục tiêu: trả lời chính xác câu hỏi phân tích đòi hỏi suy luận đa bước. Ví dụ tương tác:
 
-- Mỗi microservice chỉ giao tiếp với hub, không liên kết trực tiếp với các microservice khác.
-
-- Kết quả, lỗi hoặc đầu ra trung gian được đẩy vào hub để xử lý tiếp.
-
-- Lợi ích: giảm gọi đồng bộ, dễ mở rộng, giữ cho các thành phần tách rời.
-
-- Hạn chế: cần giám sát và phối hợp để tránh tin nhắn sai hướng hoặc trùng lặp.
-
----
-
-## Microservice lõi
-
-Nền tảng của giải pháp, cung cấp lớp dữ liệu và giao tiếp:
-
-- **Amazon** S3 cho dữ liệu và artifacts.
-
-- **Amazon DynamoDB** cho metadata và catalog.
-
-- **AWS Lambda** đảm bảo ghi dữ liệu và logic runtime nhất quán.
-
-- **Amazon SNS** Topic làm hub trung tâm.
-
-Điều này đảm bảo mọi thao tác ghi vào data lake và catalog đều được kiểm soát và nhất quán.
-
----
-
-## Microservice cửa ngõ (Front Door)
-
-Điểm truy cập chính cho các yêu cầu bên ngoài:
-
-- Amazon API Gateway cung cấp giao diện REST.
-
-- Amazon Cognito (OIDC) quản lý xác thực và phân quyền.
-
-- Cơ chế loại bỏ trùng lặp được xây dựng với DynamoDB, khắc phục giới hạn của SNS FIFO và cho phép phát hiện trùng lặp chủ động.
-
----
-
-## Microservices xử lý
-
-Agent thường cần các công cụ chuyên biệt như duyệt web, thực thi mã, hoặc tìm kiếm. Những công cụ này được triển khai dưới dạng microservices:
-
-- Lambda triggers đăng ký với hub và lọc thông điệp.
-
-- Step Functions điều phối các pipeline (ví dụ: tiền xử lý, gọi mô hình).
-
-- Lambda functions thực thi logic phân tích hoặc chuyển đổi cụ thể.
-
-- Kết quả hoặc lỗi được trả về hub cho các dịch vụ kế tiếp.
-
----
-
-## Microservice tùy biến mô hình (Nova)
-
-Fine-tuning được xử lý như một microservice riêng biệt:
-
-- Hỗ trợ cả fine-tuning toàn bộ và kỹ thuật tham số hiệu quả.
-
-- Phương pháp gồm SFT, DPO, RLHF, CPT và Distillation.
-
-- Chạy độc lập, nên việc cập nhật hoặc huấn luyện lại không ảnh hưởng đến runtime tổng thể.
-
-## Các tính năng mới trong giải pháp
-1. Amazon Bedrock AgentCore
-
-- Môi trường serverless cho agent.
-
-- Cách ly phiên làm việc và khả năng quan sát.
-
-- Tích hợp với các framework mã nguồn mở.
-
-2. Hỗ trợ công cụ mở rộng
-
-- Microservices cho bộ nhớ, định danh, gateway, trình duyệt và bộ thông dịch.
-
-- Mỗi thành phần có thể thay thế hoặc mở rộng dễ dàng.
-
-3. Sự chấp nhận từ khách hàng
-
-- Các doanh nghiệp như Itaú Unibanco, Innovaccer, Boomi, Box, và Epsilon đã áp dụng kiến trúc này để triển khai AI agent quy mô lớn, sẵn sàng cho sản xuất.
+User: Cho tôi tên đầu và tên cuối của bệnh nhân có ít vaccine nhất và số lượng vaccine của họ.
+AI: Bệnh nhân ít vaccine nhất là Sharleen176 Kulas532, số vaccine là 1.
 
 
-```yaml
-Outputs:
-  AgentCoreTopic:
-    Value: !Ref AgentCoreTopic
-    Export:
-      Name: !Sub ${AWS::StackName}-AgentCoreTopic
+Các bước:
 
-  AgentMemoryTable:
-    Value: !Ref AgentMemoryTable
-    Export:
-      Name: !Sub ${AWS::StackName}-AgentMemoryTable
+1. Lấy danh sách bệnh nhân và hồ sơ tiêm chủng.  
+2. Nhóm hồ sơ tiêm chủng theo `patient_id` và đếm số vaccine mỗi bệnh nhân.  
+3. Sắp xếp theo số vaccine tăng dần.  
+4. Giới hạn kết quả 1 bản ghi (bệnh nhân ít vaccine nhất).  
+5. Ghép với thông tin bệnh nhân để lấy tên đầu và tên cuối.  
+6. Chọn ra thông tin cần (tên đầu, tên cuối, số vaccine).
+   
+### Thiết lập dữ liệu
 
-  NovaCustomizationJob:
-    Value: !Ref NovaCustomizationJob
-    Export:
-      Name: !Sub ${AWS::StackName}-NovaCustomizationJob
+curl https://synthetichealth.github.io/synthea-sample-data/downloads/synthea_sample_data_csv_apr2020.zip > dataset.zip
+unzip dataset.zip
+mv csv dataset
+
+Giải pháp được cấu trúc từ hai bước lõi: lập kế hoạch (plan) và thực thi (execute). Ở dạng đơn giản nhất, có thể biểu diễn như sơ đồ sau. 
+![image](/images/Ảnh 1 (2).png)
+
+Trong kịch bản phức tạp hơn, bạn có thể thêm nhiều lớp xác thực và cung cấp các API phù hợp để nâng cao tỷ lệ thành công của LLM.
+
+![image](/images/Ảnh 2 (1).png)
+
+### Lập kế hoạch (Plan)
+
+Trong giai đoạn Plan, LLM được cung cấp một tập các **chữ ký hàm (function signatures)** đã định nghĩa sẵn cùng mô tả ngắn gọn công dụng của mỗi hàm. Những chữ ký hàm này được xem như các công cụ mà LLM có thể sử dụng để xây dựng kế hoạch trả lời truy vấn của người dùng. Mục tiêu là để LLM suy luận tuần tự các bước cần thiết để đạt được câu trả lời, giống như cách một con người thực hiện.
+
+#### Tại sao giai đoạn lập kế hoạch quan trọng
+
+Giai đoạn Plan rất quan trọng vì nó cho phép LLM tạo ra một chuỗi hành động có cấu trúc và logic để thực thi ở bước tiếp theo. Bằng việc lập kế hoạch, LLM có thể chia nhỏ các câu hỏi phức tạp thành các bước dễ quản lý, đảm bảo các API được gọi đúng thứ tự. Cách tiếp cận có cấu trúc này giúp giảm thiểu lỗi và tăng khả năng tạo ra kết quả chính xác.
+

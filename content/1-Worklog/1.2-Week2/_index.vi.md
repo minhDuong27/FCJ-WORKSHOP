@@ -1,58 +1,32 @@
 ---
 title: "Worklog Tuần 2"
 date: 2025-09-19
-weight: 1
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
+### Week 2 Objectives:
 
+* Học hết Module 01 của First Cloud Journey.
+* Hiểu rõ phần cơ bản về cloud, AWS và cách quản lý tài khoản.
+* Làm quen với phần tối ưu chi phí và AWS Support.
+* Hoàn thành toàn bộ các lab của Module 01.
 
-### Mục tiêu tuần 2:
+### Tasks to be carried out this week:
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2   | <ul><li>Xem lại kiến thức cloud: Module 01-01 → 01-03</li><li>Ghi chú các lợi ích khi dùng AWS</li></ul> | 15/09/2025 | 15/09/2025 | FCJ Module 01-01 → 01-03 |
+| 3   | <ul><li>Tìm hiểu hạ tầng AWS: Region, AZ, Edge Location</li><li>Xem cách dùng Service search trong AWS Console</li></ul> | 16/09/2025 | 16/09/2025 | Module 01-04, 01-05 |
+| 4   | <ul><li>Học phần tối ưu chi phí: AWS Budgets</li><li>Thực hành chuỗi lab Budgets: Lab07-01 đến Lab07-06</li></ul> | 17/09/2025 | 17/09/2025 | Module 01-06 + Lab07 |
+| 5   | <ul><li>Làm các lab về tài khoản:</li><ul><li>Tạo tài khoản</li><li>Bật MFA</li><li>Tạo user + group quản trị</li><li>Kiểm tra xác thực</li></ul></ul> | 18/09/2025 | 18/09/2025 | Lab01-01 → Lab01-04 |
+| 6   | <ul><li>Tìm hiểu AWS Support Packages</li><li>Thử tạo 1 support request test</li><li>Xem cách theo dõi và đóng case</li></ul> | 19/09/2025 | 19/09/2025 | Lab09-01 → Lab09-04 |
 
-* Học tập làm các module và tham gia sự kiện AWS 
-* Hiểu thêm về các tính năng của AWS.
+### Week 2 Achievements:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Tiến hành sâu hơn về AWS  <br> - Vai trò của IAM với EC2 <br> -                                                                                              | 15/09/2025   | 15/09/2025      |
-| 3   | - Tiếp tục làm module 2 và hiểu hơn về cách quản lý tài chính AWS <br>&emsp; + Phát triển cloud9 với AWS <br>&emsp; + trang web tĩnh đối với Amazon S3 <br>&emsp; + đã bị khóa account                                            | 16/09/2025   | 16/09/2025      | <> |
-| 4   | - Cơ sở dữ liệu cần thiết với dịch vụ cơ sở dữ liệu Amazaon (RDS)   <br>&emsp; + Tạo lại AWS account <br>&emsp; + Tạo DB subnet group <br>&emsp; + Thiết lập parameter group cơ bản | 17/09/2025   | 17/09/2025      | <> |
-| 5   | - tham dự event Cloud Day Vietnam 2025 : AI Edition  <br>&emsp + tham gia track 2 Migration & Modernization             | 18/09/2025   | 18/09/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - tiếp tục làm module 2 <br>&emsp + Simplified Computing with Amazon Lightsail   <br>emsp + Container Deployment with Amazon Lightsail Containers                      | 19/09/2025   | 19/09/2025      | <> |
-
-
-### Kết quả đạt được tuần 2:
-
-* Tiến hành làm moudle 2: 
-  * 1 Vai trò của IAM với EC2
-     * Tạo IAM Role
-     * Gán IAM Role cho EC2 Instance
-  * 2 Phát triển cloud9 với AWS
-     * Tạo môi trường Cloud9
-     * Làm việc trong IDE
-     * Dọn tài nguyên
-  * 3 trang web tĩnh đối với Amazon S3
-     * Tạo S3 bucket
-     * Tích hợp tên miền và HTTPS
-     * Tối ưu và giám sát hệ thống 
-  * 4 Cơ sở dữ liệu cần thiết với dịch vụ cơ sở dữ liệu Amazaon (RDS)
-     * Thiết lập VPC và Subnet Group
-     * Tạo RDS Database Instance
-     
-  * 5 Simplified Computing with Amazon Lightsail
-  * 6 Container Deployment with Amazon Lightsail Containers
-  2 phần này chủ yếu là về là tạo môi trường cho trang web và cố định giải pháp tối ưu chi phí .
-
-*  Các bài học được :  
-   * Cấp quyền cho các ứng dùng chạy trên EC2 instance khả năng truy cập các dịch vụ AWS khác 
-   * Tạo được môi trường phát triển linh hoạt giúp nền tảng tạo sẽ giảm gánh nặng cấu hình.
-   * Tạo thêm được chỗ lưu trữ và phân phối website tĩnh và tăng được Độ bền và khả năng mở rộng, chi phí giảm.
-   * hiểu được các bảo mật của AWS 
-   * triển khai và quản lý tốt container mà ko cần vận hành laod balancer.
-   * và để ý kĩ tải khoản để không bị khóa tài khoản.
-
-
-
-
+* Hiểu rõ cloud hoạt động thế nào và AWS khác gì so với cách làm truyền thống.
+* Biết xem hạ tầng AWS gồm những gì và cách tìm dịch vụ nhanh trên Console.
+* Làm quen phần quản lý chi phí, tự tạo được cost budget, usage budget và thử tạo Savings Plans budget.
+* Hoàn thành toàn bộ lab tài khoản: tạo user, tạo group admin, bật MFA, quản lý xác thực.
+* Biết phân biệt các gói support của AWS và biết cách mở ticket.
+* Tóm lại: đã hoàn thành toàn bộ Module 01, nắm chắc phần cơ bản để sang phần Networking tuần sau.  

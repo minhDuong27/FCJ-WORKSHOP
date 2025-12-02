@@ -1,125 +1,182 @@
 ---
-title: "Bản đề xuất"
-date: 2025-10-01
+title: "Đề Xuất Dự Án"
+date: 2025-09-11
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
 
 
-# Website Bán Hàng Trực tuyến: Furious Five Fashion (FFF)
+## Security Scan Pipeline on AWS Cloud 
+## Giải pháp tự động hoá phân tích bảo mật mã nguồn trong DevSecOps Pipeline  
 
-## Giải pháp Website Bán Hàng kết hợp AWS và AI
+### 1. BỐI CẢNH VÀ ĐỘNG LỰC DỰ ÁN
+#### 1.1 TÓM TẮT ĐIỀU HÀNH (EXECUTIVE SUMMARY)
+Khách hàng đang phát triển ứng dụng và mong muốn tích hợp mô hình DevSecOps nhằm tự động hóa quy trình build – scan – deploy, tăng tính bảo mật và rút ngắn thời gian release.
 
-### 1. Tóm tắt điều hành
+*Mục tiêu của hệ thống* là:
 
-Furious Five Fashion (FFF) là một nền tảng thương mại điện tử tập trung vào lĩnh vực thời trang, hướng đến việc mang lại trải nghiệm mua sắm trực tuyến tối ưu cho khách hàng tại Việt Nam. Giải pháp sử dụng các dịch vụ AWS serverless và công nghệ AI để xây dựng một hệ thống bán hàng trực tuyến chi phí thấp, có khả năng mở rộng, đảm bảo an toàn và cá nhân hóa trải nghiệm mua sắm.
+- Phát hiện sớm lỗi bảo mật và code smell trong mã nguồn bằng Amazon CodeGuru Reviewer.
+- Tự động build và tạo artifact khi có commit mới.
+- Lưu trữ artifact an toàn trên Amazon S3.
+- Triển khai tự động ứng dụng lên Amazon EC2 qua AWS CodeDeploy.
 
-Website sẽ cung cấp chức năng quản lý sản phẩm, giỏ hàng, thanh toán, quản lý đơn hàng và hỗ trợ khách hàng bằng chatbot AI. 
+*Use cases*:
 
-### 2. Tuyên bố vấn đề
+- Quét bảo mật tự động khi có commit mới.
+- Build và tạo artifact tự động.
+- Lưu trữ artifact an toàn.
+- Deploy EC2 tự động.
+- Gửi cảnh báo và theo dõi quy trình tập trung.
 
-*Vấn đề hiện tại*
-Nhiều trang web bán quần áo ở Việt Nam gặp phải các vấn đề như: tốc độ tải chậm, khó mở rộng, chi phí vận hành cao, thiếu tính cá nhân hóa trong trải nghiệm mua sắm và thiếu công cụ AI hỗ trợ khách hàng.
+*Dịch vụ chuyên môn được cung cấp*:
 
-*Giải pháp*
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.
+- Triển khai CodePipeline kết nối GitHub, tích hợp CodeBuild + CodeGuru Reviewer, tạo hệ thống lưu trữ artifact trên S3, triển khai CodeDeploy lên EC2, kèm toàn bộ hệ thống giám sát bảo mật và logging (CloudWatch, CloudTrail, GuardDuty, Security Hub).
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*
-* Giảm chi phí hạ tầng nhờ sử dụng AWS serverless.
-* Tối ưu doanh thu nhờ AI gợi ý sản phẩm phù hợp.
-* Dễ mở rộng quy mô từ MVP (sản phẩm thử nghiệm) lên production.
-* ROI kỳ vọng trong 6–12 tháng nhờ tăng doanh thu online và tiết kiệm chi phí vận hành.
-
-### 3. Kiến trúc giải pháp
-Hệ thống web bán hàng được xây dựng trên nền tảng AWS serverless, tận dụng các dịch vụ điện toán đám mây để giảm chi phí vận hành và dễ dàng mở rộng. Giao diện người dùng được triển khai hiện đại, backend xử lý linh hoạt qua API Gateway và Lambda, dữ liệu được quản lý an toàn trên DynamoDB và S3. Các lớp bảo mật, xác thực và chatbot AI được tích hợp để nâng cao trải nghiệm khách hàng và đảm bảo an toàn hệ thống.
-
-![E-commerce Website Solution ](/images/2-Proposal/proposal.jpg)
-*Dịch vụ AWS sử dụng
-
-- AWS Amplify: Triển khai và lưu trữ website frontend (React/Next.js).
-- Amazon API Gateway + AWS Lambda: Xử lý backend cho các API giỏ hàng, đơn hàng, sản phẩm.
-- Amazon DynamoDB: Lưu trữ dữ liệu sản phẩm, đơn hàng (NoSQL, serverless).
-- Amazon S3: Lưu trữ hình ảnh sản phẩm, tài liệu tĩnh.
-- Amazon Cognito: Quản lý người dùng (khách hàng, admin).
-- Amazon CloudFront: CDN tăng tốc tải website và hình ảnh.
-
-- Amazon SES (Simple Email Service): Gửi email xác nhận đơn hàng, khuyến mãi.
-
-*Thiết kế thành phần*
-
-- Frontend: Website Next.js triển khai qua AWS Amplify.
-- Backend: API Gateway + Lambda xử lý nghiệp vụ (CRUD sản phẩm, giỏ hàng, đơn hàng).
-- Database: DynamoDB (sản phẩm, người dùng, đơn hàng).
-- AI Layer: Amazon Lex/Bedrock chatbot, gợi ý sản phẩm dựa trên dữ liệu mua sắm.
-- Quản lý người dùng: Cognito (đăng nhập/đăng ký, phân quyền khách hàng và admin).
-
-### 4. Triển khai kỹ thuật
-
-*Các giai đoạn triển khai*
-
-1. Thiết kế kiến trúc & nghiên cứu (Tháng 1): Xây dựng kiến trúc AWS serverless và thiết kế cơ sở dữ liệu
+#### 1.2 TIÊU CHÍ THÀNH CÔNG DỰ ÁN (PROJECT SUCCESS CRITERIA)
  
-2. Phát triển bản MVP (Tháng 2): Xây dựng frontend (Next.js), backend (Lambda), tích hợp DynamoDB và Cognito.
++ Khách hàng cung cấp repo GitHub với quyền phù hợp.
++ IAM Role đủ quyền cho CodeBuild, CodeDeploy, S3, CloudWatch.
++ EC2 instance hợp lệ và sẵn sàng để triển khai.
++ Ứng dụng hỗ trợ triển khai qua appspec.yml.
++ Không yêu cầu nhiều môi trường dev/stg/prod tại thời điểm này.
++ Free Tier của AWS được sử dụng để giảm chi phí.
++ Các rủi ro có thể xảy ra: timeout, lỗi webhook, artifact lỗi, thiếu quyền IAM.
 
-3. Tích hợp AI và tối ưu chi phí (Tháng 3): Kết nối chatbot AI, cá nhân hóa trải nghiệm mua sắm.
-   
-4. Kiểm thử & triển khai production (Tháng 4): Test hệ thống, tối ưu hiệu suất, triển khai chính thức.
-*Yêu cầu kỹ thuật*
+#### 1.3 GIẢ ĐỊNH VÀ RÀNG BUỘC (ASSUMPTIONS)
 
-- Frontend: Next.js + Tailwind CSS.
-- Backend: Node.js (Lambda functions).
-- Database: DynamoDB.
-- Triển khai CI/CD: AWS Amplify + GitHub Actions.
++ Khách hàng cung cấp repo GitHub với quyền phù hợp.
++ IAM Role đủ quyền cho CodeBuild, CodeDeploy, S3, CloudWatch.
++ EC2 instance hợp lệ và sẵn sàng để triển khai.
++ Ứng dụng hỗ trợ triển khai qua appspec.yml.
++ Không yêu cầu nhiều môi trường dev/stg/prod tại thời điểm này.
++ Free Tier của AWS được sử dụng để giảm chi phí.
++ Các rủi ro có thể xảy ra: timeout, lỗi webhook, artifact lỗi, thiếu quyền IAM.
 
-### 5. Lộ trình & Mốc triển khai
+### 2. KIẾN TRÚC GIẢI PHÁP / SƠ ĐỒ KIẾN TRÚC
+#### 2.1 SƠ ĐỒ KIẾN TRÚC KỸ THUẬT (TECHNICAL ARCHITECTURE DIAGRAM)
+*Sơ đồ kiến trúc*: ![DevOps / Pipeline Engineer](/images/2-Proposal/z7163899093605_61ed75e700147e145be9ee71415522bc.jpg)
 
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá các trang web bán hàng .
-- *Thực tập (Tháng 1–3)*:
-  - Tháng 1: Học AWS và nâng cấp phần cứng.
-  - Tháng 2: Thiết kế cơ sở dữ liệu, nghiên cứu AWS services, Xây dựng MVP.
-  - Tháng 3: Tích hợp AI chatbot, tối ưu chi phí hạ tầng,triển khai, kiểm thử, đưa vào sử dụng.
+*Danh sách công cụ AWS*:
++ AWS CodePipeline
++ AWS CodeBuild
++ Amazon CodeGuru Reviewer
++ Amazon S3
++ AWS CodeDeploy
++ Amazon EC2
++ Amazon SNS
++ CloudWatch, CloudTrail, GuardDuty, Detective, Security Hub
+
+#### 2.2 KẾ HOẠCH KỸ THUẬT (TECHNICAL PLAN) 
+Bao gồm:
++ Thiết lập kết nối GitHub (OIDC/PAT).
++ Tạo dự án CodeBuild + buildspec.yml.
++ Tích hợp CodeGuru Reviewer.
++ Tạo CodeDeploy + appspec.yml.
++ Bật monitoring và security logging theo chuẩn AWS Well-Architected.
+
+#### 2.3 KẾ HOẠCH DỰ ÁN (PROJECT PLAN)
+Áp dụng Agile Scrum với 2 sprint (2 tuần/sprint).
+
+*Trách nhiệm nhóm*: 
++ DevOps Engineer: thiết kế và cài đặt pipeline
++ Developer: hỗ trợ test, cung cấp repo
++ Security Analyst: đánh giá cảnh báo CodeGuru & GuardDuty
+
+*Tần suất họp và trao đổi*: 
++ Daily Standup
++ Weekly Review
++ Bi-weekly Retrospective
+
+*Chuyển giao kiến thức*: 1 buổi training sử dụng pipeline và 1 buổi hướng dẫn xem log & báo cáo.
+
+#### 2.4 CÁC YẾU TỐ AN NINH (SECURITY CONSIDERATIONS) 
+
+1. Truy cập (Access)
++ Bật MFA
++ Dùng IAM Role thay vì Access Key
+
+2. Hạ tầng (Infrastructure): Security Group giới hạn IP
+
+3. Dữ liệu (Data): S3 encryption SSE-S3
+
+4. Phát hiện (Detection): GuardDuty, Detective, CloudTrail
+
+5. Quản lý sự cố (Incident Management): SNS cảnh báo build/deploy thất bại
 
 
-### 6. Ước tính ngân sách
+### 3. HOẠT ĐỘNG & SẢN PHẨM BÀN GIAO
+#### 3.1 HOẠT ĐỘNG VÀ DELIVERABLES (ACTIVITIES & DELIVERABLES)
+| Giai đoạn            | Thời gian | Hoạt động                   | Sản phẩm bàn giao   | Man-day |
+| -------------------- | --------- | --------------------------- | ------------------- | ------- |
+| Đánh giá             | Tuần 1    | Thu thập yêu cầu            | Kiến trúc ban đầu   | X       |
+| Thiết lập hạ tầng    | Tuần 1–2  | S3, IAM, EC2, GitHub        | Hạ tầng             | X       |
+| Thiết lập Pipeline   | Tuần 2–3  | CodePipeline + Build + Scan | Pipeline hoàn chỉnh | X       |
+| Thiết lập Deployment | Tuần 3    | CodeDeploy                  | Deploy tự động      | X       |
+| Kiểm thử & Go-live   | Tuần 4    | Test pipeline               | Báo cáo test        | X       |
+| Bàn giao             | Tuần 4    | Training + tài liệu         | KT hoàn chỉnh       | X       |
+
+#### 3.2 PHẠM VI NGOÀI DỰ ÁN (OUT OF SCOPE)
+- Không triển khai thêm môi trường staging/production. 
+- Không tích hợp SonarQube/Trivy/Checkov. 
+- Không thiết kế dashboard nâng cao. 
+- Không triển khai autoscaling hoặc load balancer. 
+
+#### 3.3 LỘ TRÌNH LÊN SẢN XUẤT (PATH TO PRODUCTION)
+POC chỉ dùng cho demo ban đầu.
+Để đưa vào production cần thêm: Unit test tự động, Monitoring nâng cao, Error handling chi tiết, Multi-environment CI/CD
+
+### 4. DỰ TRÙ CHI PHÍ AWS  
+*Chi phí ước tính*  
+- CodePipeline: 0.40 USD/tháng
+- CodeBuild: 0.35 USD/tháng
+- S3: 0.10 USD/tháng
+- CodeDeploy: 0.20 USD/tháng  
+- EC2 t2.micro: 0.10 USD/tháng
+- CloudWatch + SNS: 0.05 USD/tháng
+
+Tổng: ~1.2 USD/tháng (~14.4 USD/năm)
+
+### 5. ĐỘI NGŨ THAM GIA DỰ ÁN
+*Nhà tài trợ & các bên liên quan (Executive Sponsor & Stakeholders)*  
+Team First Cloud Journey
+
+*Đội ngũ triển khai (Project Team)* 
+
+| Name             | Student ID | Email / Contact                  |
+|------------------|-------------|----------------------------------|
+| Lê Công Cảnh     | SE183750    | canhlcse183750@fpt.edu.vn       |
+| Phùng Gia Đức    | SE183187    | ducpgse183187@fpt.edu.vn        |
+| Vũ Nguyễn Bình   | SE193185    | vunguyenbinh25@gmail.com        |
+| Lê Minh Dương    | SE184079    | duonglmse184079@fpt.edu.vn      |
+| Nguyễn Phi Duy   | SE180529    | duynpse180529@fpt.edu.vn        |
 
 
+### 6. NGUỒN LỰC & ƯỚC TÍNH CHI PHÍ (RESOURCES & COST ESTIMATES)
+Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01) Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).
 
-*Chi phí hạ tầng*
-- Chi phí hạ tầng (ước tính theo tháng)
-- AWS Amplify: ~9 USD
-- API Gateway + Lambda: ~5 USD
-- DynamoDB: ~10 USD
-- S3 + CloudFront: ~4 USD
-- Cognito: ~1 USD
-- AI Chatbot (Lex/Bedrock): ~10 USD
-- SES Email: ~1 USD
-- chi phí dự phòng  phát sinh : 70 USD/ tháng đầu
-Tổng cộng: ~45 USD/tháng (~300 USD/năm).
+#### 6.1 PHÂN BỔ NGUỒN LỰC VÀ TỶ LỆ THEO GIỜ
 
-### 7. Đánh giá rủi ro
+| **Nguồn lực**                                   | **Trách nhiệm**                                                                                                      | **Đơn giá (USD) / Giờ** | **Số lượng nhân sự** |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------- | -------------------- |
+| **Kiến trúc sư giải pháp (Solution Architect)** | Thiết kế kiến trúc, đánh giá bảo mật, tích hợp dịch vụ AWS, giám sát xây dựng pipeline CI/CD & hệ thống quét bảo mật | 6 – 9                 | 1                    |
+| **Kỹ sư (DevOps / Cloud Engineer)**             | Triển khai CI/CD pipeline, cấu hình CodePipeline/CodeBuild/CodeDeploy, IAM, kiểm thử, viết tài liệu                  | 4 – 7                 | 1–2                  |
+| **Kỹ sư bảo mật – Security Engineer**    | Tích hợp công cụ quét bảo mật (SonarQube, Trivy, CodeGuru Security), phân tích báo cáo                               | 5 – 8                 | 1                    |
 
-*Ma trận rủi ro*
+#### 6.2 ƯỚC TÍNH SỐ GIỜ THEO TỪNG GIAI ĐOẠN 
 
-- Tắc nghẽn hiệu suất khi tăng lượng truy cập: Ảnh hưởng cao, xác suất trung bình.
-- Vượt ngân sách AWS khi lưu trữ/hạ tầng tăng: Ảnh hưởng trung bình, xác suất trung bình.
-- AI chatbot trả lời sai hoặc không phù hợp: Ảnh hưởng trung bình, xác suất cao.
-*Chiến lược giảm thiểu*
+| **Giai đoạn Dự án**                           | **Giờ của Kiến trúc sư** | **Giờ của Kỹ sư** | **Giờ của Nhân sự khác** | **Tổng Giờ** |
+| --------------------------------------------- | ------------------------ | ----------------- | ------------------------ | ------------ |
+| **Giai đoạn 1 – Khảo sát & Thu thập yêu cầu** | 4                        | 4                 | 0                        | 8            |
+| **Giai đoạn 2 – Thiết kế kiến trúc**          | 6                        | 2                 | 0                        | 8            |
+| **Giai đoạn 3 – Triển khai Pipeline**         | 4                        | 20                | 6                        | 30           |
+| **Giai đoạn 4 – Tích hợp quét bảo mật**       | 2                        | 6                 | 8                        | 16           |
+| **Giai đoạn 5 – Kiểm thử & Đánh giá**         | 2                        | 8                 | 4                        | 14           |
+| **Giai đoạn 6 – Tài liệu & Bàn giao**         | 2                        | 6                 | 2                        | 10           |
+| **Tổng Số Giờ**                               | **20**                   | **46**            | **20**                   | **86 giờ**   |
 
-- Sử dụng CloudFront CDN và auto-scaling serverless.
-- Đặt cảnh báo ngân sách AWS (AWS Budgets).
-- Kiểm thử và huấn luyện chatbot AI với dữ liệu thời trang phù hợp.
 
-*Kế hoạch dự phòng*
-
-- Nếu AWS gặp sự cố: chuyển sang backup dữ liệu trên S3 và tạm thời xử lý đơn hàng thủ công.
-- Nếu chatbot AI không hiệu quả: fallback sang live chat với nhân viên CSKH.
-  
-### 8. Kết quả kỳ vọng
-
-*Cải tiến kỹ thuật*: Cải tiến kỹ thuật: Xây dựng website bán hàng tốc độ cao, chi phí thấp, có khả năng mở rộng.
-*Trải nghiệm khách hàng*: Tích hợp AI chatbot và gợi ý sản phẩm cá nhân hóa.
-*Giá trị dài hạn*: Dễ dàng mở rộng thêm ứng dụng mobile, tích hợp marketing automation và phân tích dữ liệu khách hàng.
-
-### Kết luận:
-- Furious Five Fashion (FFF) sẽ trở thành một nền tảng thương mại điện tử thông minh, tối ưu chi phí và ứng dụng AI để nâng cao trải nghiệm khách hàng, đồng thời phù hợp với nguồn lực triển khai của một nhóm nhỏ.
+### 7. NGHIỆM THU (ACCEPTANCE)
++ Khách hàng có 8 ngày để đánh giá deliverable.
++ Nếu không phản hồi → Deliverable được xem là đã nghiệm thu.
++ Nếu có lỗi → Nhà cung cấp sửa và gửi lại theo quy trình Rejection Notice.

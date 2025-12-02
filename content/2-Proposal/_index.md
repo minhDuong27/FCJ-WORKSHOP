@@ -1,134 +1,190 @@
 ---
 title: "Proposal"
-date: 2025-10-01
+date: 2025-09-11
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
 
 
+# Security Scan Pipeline on AWS Cloud 
+## Automated solution for source code security analysis in the DevSecOps pipeline
 
-# Online Shopping Website: Furious Five Fashion (FFF)
-## E-commerce Website Solution with AWS and AI
+### 1. BACKGROUND AND PROJECT DRIVERS
+#### 1.1 EXECUTIVE SUMMARY
+The client is developing an application and wants to adopt a DevSecOps model to automate the build–scan–deploy workflow, improve security, and shorten release cycles.
 
-### 1. Executive Summary
-Furious Five Fashion (FFF) is an e-commerce platform focusing on the fashion sector, aiming to deliver the best online shopping experience for customers in Vietnam. The solution leverages AWS serverless services and AI technology to build a low-cost, scalable, secure online sales system that personalizes the shopping journey.
+System objectives:
 
-The website will provide product management, shopping cart, payment, order management, and customer support via an AI chatbot.
+- Detect security vulnerabilities and code smells early in the source code using Amazon CodeGuru Reviewer.
+- Automatically build and create artifacts when new commits occur.
+- Store artifacts securely in Amazon S3.
+- Automatically deploy the application to Amazon EC2 via AWS CodeDeploy.
 
-### 2. Problem Statement
-### What’s the Problem?
-Many clothing websites in Vietnam face problems such as slow loading speed, poor scalability, high operating costs, lack of personalization in the shopping experience, and no AI tools to assist customers.
+Use cases:
 
-### The Solution
-The platform uses AWS IoT Core to receive MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers with ETL tasks to extract, transform, and load data from the S3 data lake into another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, but this platform operates on a smaller scale and for internal use. Key features include a real-time dashboard, trend analysis, and low operating costs.
+- Automatic security scanning on new commits.
+- Automated build and artifact creation.
+- Secure artifact storage.
+- Automatic EC2 deployment.
+- Centralized alerts and process monitoring.
 
-### Benefits and Return on Investment
-- Reduce infrastructure costs by using AWS serverless.
+Professional services provided:
 
-- Optimize revenue with AI-driven product recommendations.
+- Implement CodePipeline integrated with GitHub, include CodeBuild + CodeGuru Reviewer, configure S3 artifact storage, deploy to EC2 with CodeDeploy, and enable security monitoring and logging (CloudWatch, CloudTrail, GuardDuty, Security Hub).
 
-- Easily scale from MVP to production.
+#### 1.2 PROJECT SUCCESS CRITERIA
 
-- Expected ROI within 6–12 months through increased online sales and reduced operating costs.
+- The client provides a GitHub repository with appropriate permissions.
+- IAM Roles have sufficient permissions for CodeBuild, CodeDeploy, S3, and CloudWatch.
+- EC2 instances are provisioned and ready for deployment.
+- The application supports deployment via appspec.yml.
+- Multiple environments (dev/stg/prod) are not required at this time.
+- AWS Free Tier is used to reduce costs where possible.
+- Potential risks: timeouts, webhook failures, corrupted artifacts, insufficient IAM permissions.
 
-### 3. Solution Architecture
-The e-commerce system is built on an AWS serverless architecture, leveraging cloud services to minimize operational costs and ensure scalability. The user interface is deployed with a modern frontend, while the backend is handled flexibly through API Gateway and Lambda. Data is securely managed with DynamoDB and S3. Security layers, authentication, and an AI chatbot are integrated to enhance customer experience and ensure system safety.
+#### 1.3 ASSUMPTIONS
 
-![E-commerce Website Solution ](/images/2-Proposal/proposal.jpg)
+- The customer provides a GitHub repository with appropriate permissions.
+- IAM Roles have sufficient permissions for CodeBuild, CodeDeploy, S3, and CloudWatch.
+- EC2 instances are valid and ready for deployment.
+- The application supports deployment via appspec.yml.
+- Multiple environments (dev/stg/prod) are not required at this time.
+- AWS Free Tier is used to minimize costs.
+- Potential risks include: timeouts, webhook failures, corrupted artifacts, insufficient IAM permissions.
+
+### 2. SOLUTION ARCHITECTURE / ARCHITECTURAL DIAGRAM
+#### 2.1 TECHNICAL ARCHITECTURE DIAGRAM
+Architecture diagram: ![DevOps / Pipeline Engineer](/images/2-Proposal/z7163899093605_61ed75e700147e145be9ee71415522bc.jpg)
+
+AWS services used:
+
+- AWS CodePipeline
+- AWS CodeBuild
+- Amazon CodeGuru Reviewer
+- Amazon S3
+- AWS CodeDeploy
+- Amazon EC2
+- Amazon SNS
+- CloudWatch, CloudTrail, GuardDuty, Detective, Security Hub
+
+#### 2.2 TECHNICAL PLAN
+Includes:
+
+- Configure GitHub connection (OIDC or Personal Access Token).
+- Create CodeBuild project and provide buildspec.yml.
+- Integrate Amazon CodeGuru Reviewer.
+- Configure CodeDeploy and appspec.yml.
+- Enable monitoring and security logging following AWS Well-Architected best practices.
+
+#### 2.3 PROJECT PLAN
+We will follow Agile Scrum with two sprints (2 weeks per sprint).
+
+Team responsibilities:
+
+- DevOps Engineer: design and implement the pipeline
+- Developer: support testing and provide the repository
+- Security Analyst: review alerts from CodeGuru & GuardDuty
+
+Meeting cadence:
+
+- Daily Standup
+- Weekly Review
+- Bi-weekly Retrospective
+
+Knowledge transfer: one training session on using the pipeline and one session on viewing logs & reports.
+
+#### 2.4 SECURITY CONSIDERATIONS
+
+1. Access
+- Enable MFA
+- Use IAM Roles instead of long-term Access Keys
+
+2. Infrastructure
+- Security Groups with IP restrictions
+
+3. Data
+- S3 encryption (SSE-S3)
+
+4. Detection
+- GuardDuty, Detective, CloudTrail
+
+5. Incident Management
+- SNS alerts for failed builds/deployments
+
+### 3. ACTIVITIES & DELIVERABLES
+#### 3.1 ACTIVITIES & DELIVERABLES
+| Phase                | Duration  | Activity                    | Deliverable         | Man-day |
+| -------------------- | --------- | --------------------------- | ------------------- | ------- |
+| Assessment           | Week 1    | Requirements gathering      | Initial architecture | X      |
+| Infrastructure setup | Week 1–2  | S3, IAM, EC2, GitHub        | Infrastructure      | X      |
+| Pipeline setup       | Week 2–3  | CodePipeline + Build + Scan | Complete pipeline   | X      |
+| Deployment setup     | Week 3    | CodeDeploy                  | Automated deploy    | X      |
+| Testing & Go-live    | Week 4    | Test the pipeline           | Test report         | X      |
+| Handover             | Week 4    | Training + documentation    | Final handover      | X      |
+
+#### 3.2 OUT OF SCOPE
+- No additional staging/production environments will be provisioned.
+- No integration with SonarQube / Trivy / Checkov.
+- No advanced dashboard design.
+- No autoscaling or load balancer configuration.
+
+#### 3.3 PATH TO PRODUCTION
+The POC is intended for the initial demo only.
+To move to production, additional work is required: automated unit tests, enhanced monitoring, detailed error handling, and multi-environment CI/CD.
+
+### 4. AWS COST ESTIMATE
+Estimated monthly costs:
+
+- CodePipeline: $0.40 / month
+- CodeBuild: $0.35 / month
+- S3: $0.10 / month
+- CodeDeploy: $0.20 / month
+- EC2 t2.micro: $0.10 / month
+- CloudWatch + SNS: $0.05 / month
+
+Total: ~ $1.2 / month (~ $14.4 / year)
+
+### 5. PROJECT TEAM
+Executive Sponsor & Stakeholders
+
+Team: First Cloud Journey
+
+Project Team
+| Name             | Student ID | Email / Contact                  |
+|------------------|-------------|----------------------------------|
+| Lê Công Cảnh     | SE183750    | canhlcse183750@fpt.edu.vn       |
+| Phùng Gia Đức    | SE183187    | ducpgse183187@fpt.edu.vn        |
+| Vũ Nguyễn Bình   | SE193185    | vunguyenbinh25@gmail.com        |
+| Lê Minh Dương    | SE184079    | duonglmse184079@fpt.edu.vn      |
+| Nguyễn Phi Duy   | SE180529    | duynpse180529@fpt.edu.vn        |
+
+### 6. RESOURCES & COST ESTIMATES
+See the cost estimate on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01) or download the [budget estimation file](../attachments/budget_estimation.pdf).
+
+#### 6.1 Resource Allocation & Hourly Rates
+
+| **Resource**                   | **Responsibility**                                                                                       | **Rate (USD) / Hour** | **Headcount** |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------- | --------------------- | ------------- |
+| **Solution Architects**        | Architecture design, security review, AWS service integration, oversight of CI/CD & scanning pipeline    | 6 – 9               | 1             |
+| **Engineers (DevOps / Cloud)** | Implement CI/CD pipeline, configure CodePipeline/CodeBuild/CodeDeploy, IAM setup, testing, documentation | 4 – 7              | 1–2           |
+| **Other (Security Engineer)**  | Integrate code scanning tools (SonarQube, Trivy, CodeGuru Security), analyze reports                     | 5 – 8               | 1             |
+
+#### 6.2 Estimated Project Hours by Phase
+
+| **Project Phase**                           | **Solution Architects (Hours)** | **Engineers (Hours)** | **Other (Hours)** | **Total Hours** |
+| ------------------------------------------- | ------------------------------- | --------------------- | ----------------- | --------------- |
+| **Phase 1 – Discovery & Requirements**      | 4                               | 4                     | 0                 | 8               |
+| **Phase 2 – Architecture Design**           | 6                               | 2                     | 0                 | 8               |
+| **Phase 3 – Pipeline Implementation**       | 4                               | 20                    | 6                 | 30              |
+| **Phase 4 – Security Scanning Integration** | 2                               | 6                     | 8                 | 16              |
+| **Phase 5 – Testing & Validation**          | 2                               | 8                     | 4                 | 14              |
+| **Phase 6 – Documentation & Handover**      | 2                               | 6                     | 2                 | 10              |
+| **Total Hours**                             | **20**                          | **46**                | **20**            | **86 Hours**    |
 
 
-### AWS Services Used
-- **AWS Amplify**: Deploy and host frontend website (React/Next.js).
+### 7. ACCEPTANCE
 
-- **Amazon API Gateway + AWS Lambda**: Backend API handling for cart, orders, products.
-
-- **Amazon DynamoDB**: Store product and order data (NoSQL, serverless).
-
-- **Amazon S3**: Store product images and static assets.
-
-- **Amazon Cognito**: Manage users (customers, admin).
-
-- **Amazon CloudFront**: CDN for faster website and image loading.
-
-- **Amazon SES (Simple Email Service)**: Send order confirmations and promotional emails
-
-### Component Design
-- **Frontend**: Next.js website deployed via AWS Amplify.
-
-- **Backend**: API Gateway + Lambda handling business logic (CRUD for products, cart, orders).
-
-- **Database**: DynamoDB (products, users, orders).
-
-- **AI Layer**: Amazon Lex/Bedrock chatbot, personalized product recommendations based on shopping data.
-
-- **User Management**: Cognito (login/registration, role-based access for customers and admin).
-
-### 4. Technical Implementation
-**Implementation Phases**
-1. Architecture Design & Research (Month 1): Build AWS serverless architecture and design database.
-
-2. MVP Development (Month 2): Develop frontend (Next.js), backend (Lambda), integrate DynamoDB and Cognito.
-
-3. AI Integration & Cost Optimization (Month 3): Connect AI chatbot, personalize shopping experience.
-
-4. Testing & Production Deployment (Month 4): System testing, performance optimization, official launch.
-
-**Technical Requirements**
-- Frontend: Next.js + Tailwind CSS.
-
-- Backend: Node.js (Lambda functions).
-
-- Database: DynamoDB.
-
-- CI/CD Deployment: AWS Amplify + GitHub Actions.
-
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design database, research AWS services, build MVP.
-    - Month 3: Integrate AI chatbot, optimize infrastructure cost, deploy, test, and launch.
-- Post-Launch: Up to 1 year for research.
-
-### 6. Budget Estimation
-
-### Infrastructure Cost
-- AWS Services:
-   - AWS Amplify: ~9 USD
-   - API Gateway + Lambda: ~5 USD
-   - DynamoDB: ~10 USD
-   -  S3 + CloudFront: ~4 USD
-   - Cognito: ~1 USD
-   - AI Chatbot (Lex/Bedrock): ~10 USD
-   - SES Email: ~1 USD
-   - Contingency cost incurred: 70 USD/the first month
-Total: ~45 USD/month (~300 USD/year).
-
-
-### 7. Risk Assessment
-#### Risk Matrix
-- Performance bottlenecks during traffic spikes: High impact, medium likelihood.
-
-- Exceeding AWS budget due to storage/infrastructure growth: Medium impact, medium likelihood.
-
-- AI chatbot providing incorrect or unsuitable responses: Medium impact, high likelihood.
-#### Mitigation Strategies
-- Use CloudFront CDN and serverless auto-scaling.
-
-- Set AWS budget alerts.
-
-- Test and train AI chatbot with fashion-specific data.
-#### Contingency Plans
-- If AWS experiences downtime: switch to S3 backup and temporarily process orders manually.
-
-- If AI chatbot is ineffective: fallback to live chat with customer service staff.
-### 8. Expected Outcomes
-#### Technical Improvements: 
-Technical Improvements: Build a high-speed, low-cost, scalable e-commerce website.
-Customer Experience: Integrate AI chatbot and personalized product recommendations.
-Long-term Value: Easily expand into mobile apps, integrate marketing automation, and customer data analytics.
-#### Conclusion
-
-Furious Five Fashion (FFF) will become an intelligent e-commerce platform that optimizes costs and applies AI to enhance customer experience, while remaining suitable for deployment by a small team.
+- The client has 8 days to review the deliverables.
+- If no response is received, the deliverables will be considered accepted.
+- If defects are found, the provider will fix and resubmit according to the Rejection Notice process.

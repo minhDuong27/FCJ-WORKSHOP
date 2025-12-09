@@ -6,33 +6,31 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
+Trong thời gian thực tập tại **Amazon Web Services Vietnam Co., Ltd.** từ **8/9/2025 đến 12/12/2025**, tôi có cơ hội tiếp cận môi trường làm việc chuyên nghiệp và được thực hành những kiến thức đã học trong nhà trường.  
+Tôi tham gia chương trình **First Cloud Journey**, qua đó nâng cao kỹ năng **giao tiếp, làm việc nhóm, quản lý thời gian**, đồng thời mở rộng hiểu biết về **AWS, Cloud Computing và các quy trình triển khai thực tế**.
 
-Trong suốt thời gian thực tập tại **Amazon Web Services Vietnam Co., Ltd.** từ **8/9/2025** đến **12/9/2025**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **First Cloud Journey**, qua đó cải thiện kỹ năng **giao tiếp,quản lí tài chính ,hiểu biết thêm về AWS và Cloud**.  
+Trong suốt quá trình thực tập, tôi luôn cố gắng hoàn thành công việc đúng tiến độ, tôn trọng nội quy và chủ động trao đổi với mentor và các bạn trong nhóm để cải thiện chất lượng công việc.
 
-Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
+Dưới đây là phần tự đánh giá của tôi:
 
-Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+| STT | Tiêu chí                            | Mô tả                                                                 | Tốt | Khá | Trung bình |
+|-----|-------------------------------------|-----------------------------------------------------------------------|-----|-----|------------|
+| 1   | **Kiến thức & kỹ năng chuyên môn**  | Áp dụng kiến thức AWS/Cloud vào thực tế, nắm vững công cụ, chất lượng công việc | ✅ | ☐ | ☐ |
+| 2   | **Khả năng học hỏi**                | Học nhanh, tự cập nhật thông tin, tiếp thu tốt các công nghệ mới     | ☐ | ✅ | ☐ |
+| 3   | **Chủ động**                        | Tự tìm hiểu nhiệm vụ, không phụ thuộc vào hướng dẫn 100%             | ✅ | ☐ | ☐ |
+| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng thời gian, đảm bảo độ chính xác            | ✅ | ☐ | ☐ |
+| 5   | **Kỷ luật**                         | Tuân thủ quy trình, giờ giấc, tác phong làm việc                     | ☐ | ✅ | ☐ |
+| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận góp ý, sửa sai và cải thiện năng lực                    | ✅ | ☐ | ☐ |
+| 7   | **Giao tiếp**                       | Trình bày ý tưởng rõ ràng, trao đổi hợp tác                           | ☐ | ✅ | ☐ |
+| 8   | **Làm việc nhóm**                   | Hỗ trợ nhóm, phối hợp nhịp nhàng trong dự án                          | ✅ | ☐ | ☐ |
+| 9   | **Tác phong chuyên nghiệp**         | Ứng xử chuẩn mực, tôn trọng mọi người                                 | ✅ | ☐ | ☐ |
+| 10  | **Giải quyết vấn đề**               | Xử lý tình huống, đề xuất hướng giải quyết khi gặp lỗi/hạn chế        | ☐ | ✅ | ☐ |
+| 11  | **Đóng góp dự án**                  | Hoàn thành các task được giao, góp phần vào tiến độ và chất lượng dự án | ☐ | ✅ | ☐ |
+| 12  | **Đánh giá chung**                  | Mức độ hoàn thành kỳ thực tập                                         | ☐ | ✅ | ☐ |
 
+### Những điểm cần cải thiện:
 
-| STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
-| 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
-| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
-| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
-| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
-| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ✅   |           |
-| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ✅   | ☐   | ☐          |
-| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
-| 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅   | ☐   | ☐          |
-| 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅   | ☐   | ☐          |
-| 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
-| 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ☐   | ✅   | ☐          |
-| 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ☐   | ✅   | ☐          |
-
-### Cần cải thiện
-
-* Nâng cao tính kỹ luật  của bản thân, chấp hành nghiêm chỉnh nội quy của công ty 
-* Cải thiện trong cách tư duy giải quyết vấn đề 
-* Học cách xử lý tình huống nhanh và an toàn hơn 
-* Cần tạo ra mục tiêu rõ ràng hơn
+* Rèn luyện tính kỷ luật để làm việc ổn định và nhất quán hơn.  
+* Tăng khả năng phân tích và giải quyết vấn đề trong các tình huống phát sinh.  
+* Tập phản xạ nhanh và an toàn hơn khi xử lý lỗi kỹ thuật.  
+* Đặt mục tiêu rõ ràng và theo dõi tiến độ chặt chẽ hơn trong từng giai đoạn.  

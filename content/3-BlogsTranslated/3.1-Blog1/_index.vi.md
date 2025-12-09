@@ -1,12 +1,10 @@
 ---
-title: "Blog 1"
+title: "Sử dụng Large Language Models trên Amazon Bedrock cho Thực thi Tác vụ Đa bước"
 date: 2025-10-16
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-
-# Sử dụng Mô hình Ngôn ngữ Lớn (LLM) trên Amazon Bedrock cho thực thi tác vụ đa bước
 
 **Bởi Bruno Klein, Mohammad Arbabshirani, và Rushabh Lokhande vào 02 Tháng 4 2025**  
 **Chủ đề:** Amazon Bedrock, Generative AI, Intermediate (200)
